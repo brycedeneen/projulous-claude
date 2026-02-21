@@ -13,9 +13,9 @@ Open issues from QA reports (manual-test-report.md, QA_REPORT_2026-02-18.md).
 | # | Issue | Source | Project | Effort |
 |---|-------|--------|---------|--------|
 | 1 | **Admin guard too permissive** — any admin permission grants access to ALL admin pages. Need per-route permission checks. | QA-MAJ-1/2 | web | 3h |
-| 2 | **AuthMethodIcons shows "Password" for OAuth-only users** — fallback logic always includes password icon | QA-MAJ-3 | web | 30m |
+| 2 | ~~**AuthMethodIcons shows "Password" for OAuth-only users**~~ — FIXED: backend now returns `hasPassword` boolean, detail page uses it | QA-MAJ-3 | web + svc | done |
 | 3 | **Browse All Services shows only 1 vendor type** — only Plumbing is PUBLISHED. Create/publish vendor pages for categories on home page, or filter carousel. | MT-MAJ-1 | DB ops / web | 2h |
-| 4 | **Vendor page shows 11% Satisfaction Rate** — metric calculation likely incorrect or insufficient data | MT-MAJ-2 | svc | 1h |
+| 4 | ~~**Vendor page shows 11% Satisfaction Rate**~~ — test data only, ignored | MT-MAJ-2 | svc | n/a |
 
 ### Medium Priority
 
@@ -23,19 +23,19 @@ Open issues from QA reports (manual-test-report.md, QA_REPORT_2026-02-18.md).
 |---|-------|--------|---------|--------|
 | 5 | **Seed help center content** — articles, categories, FAQs all empty | QA-MED-1 | DB ops | 1h |
 | 6 | **Seed project showcase** — `/projects` page is empty | QA-MED-2 | DB ops | 1h |
-| 7 | **Missing BILLING i18n key** — `settings.notifications.category.BILLING` shows raw key for all users | MT-MIN-2 | web | 15m |
+| 7 | ~~**Missing BILLING i18n key**~~ — FIXED: translations exist in all 3 languages | MT-MIN-2 | web | done |
 
 ### Low Priority
 
 | # | Issue | Source | Project | Effort |
 |---|-------|--------|---------|--------|
-| 8 | **Sidebar shows customer items to anonymous users** — My Projects/Places/Appliances visible when logged out | MT-MIN-1 | web | 30m |
+| 8 | ~~**Sidebar shows customer items to anonymous users**~~ — FIXED: `handleProtectedNavigation` redirects to login | MT-MIN-1 | web | done |
 | 9 | **SP Certification 403 error** — raw error banner for non-admin SP members instead of friendly message | MT-MIN-3 | web | 30m |
-| 10 | **Ideas page redirect for anonymous** — redirects to contact page without explanation | MT-MIN-4 | web | 30m |
-| 11 | **Contact page "Start Chat" non-functional** — green "Online Now" dot with no handler | QA-LOW-1 | web | 15m |
+| 10 | ~~**Ideas page redirect for anonymous**~~ — FIXED: shows sign-in prompt with explanation | MT-MIN-4 | web | done |
+| 11 | ~~**Contact page "Start Chat" non-functional**~~ — FIXED: removed live chat card, ticket + email remain | QA-LOW-1 | web | done |
 | 12 | **Community Resources links go to "#"** — 4 cards (Guides, Videos, Forum, Status) are dead links | QA-LOW-2 | web | 30m |
-| 13 | **Plumbing vendor page test FAQ data** — "test" question with "test 2 faq" answer visible | QA-LOW-3 | DB ops | 5m |
-| 14 | **FAQ modal hardcodes dark theme** — vendor page editor FAQ modal missing `dark:` prefix | QA-MIN-3 | web | 15m |
+| 13 | ~~**Plumbing vendor page test FAQ data**~~ — test data only, ignored | QA-LOW-3 | DB ops | n/a |
+| 14 | ~~**FAQ modal hardcodes dark theme**~~ — FIXED: FAQ + Showcase modals now have proper light/dark variants | QA-MIN-3 | web | done |
 | 15 | **Hover tooltips** — ~60 icon-only elements across ~30 files need `title` attributes | hover-tooltips-plan.md | web | 1.5h |
 
 ### Pending Migrations (AI Guardrails)

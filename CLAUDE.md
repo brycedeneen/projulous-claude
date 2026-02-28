@@ -6,11 +6,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Structure
 
-This is a VS Code multi-root workspace containing four projects:
+This is a VS Code multi-root workspace containing five projects:
 
 - **projulous-svc**: NestJS backend API service (GraphQL + REST)
 - **projulous-web**: React Router v7 frontend with Tailwind CSS
-- **projulous-mobile**: Expo SDK 54 / React Native mobile app (iOS + Android)
+- **projulous-mobile**: Expo SDK 54 / React Native mobile app for customers (iOS + Android)
+- **redbrick-software-mobile**: Expo / React Native internal admin app for Redbrick Software team (audit logs, AI interaction logs, provider management, support tickets, settings)
 - **projulous-shared-dto-node**: Shared TypeScript DTOs, entities, and enums used by all projects
 
 ## Common Commands
@@ -40,6 +41,15 @@ npx playwright test    # Run Playwright e2e tests
 ### Mobile (projulous-mobile)
 ```bash
 cd projulous-mobile
+npx expo start         # Start Expo dev server
+npx expo start --ios   # Start with iOS Simulator
+npx expo start --android # Start with Android Emulator
+npm run lint           # Run ESLint
+```
+
+### Internal Admin Mobile (redbrick-software-mobile)
+```bash
+cd redbrick-software-mobile
 npx expo start         # Start Expo dev server
 npx expo start --ios   # Start with iOS Simulator
 npx expo start --android # Start with Android Emulator
@@ -78,6 +88,15 @@ npm run lint:ts        # Run ESLint
 - **Styling**: NativeWind v5 (Tailwind for React Native)
 - **Path alias**: `@/` maps to project root (NOT `~/`)
 - **Auth**: JWT in expo-secure-store, AuthContext + UserTypeContext
+
+### Internal Admin Mobile (redbrick-software-mobile)
+
+- **Framework**: Expo / React Native (same stack as projulous-mobile)
+- **Routing**: Expo Router (file-based routing in `app/`)
+- **Purpose**: Internal admin app for the Redbrick Software team — NOT customer-facing
+- **Key Tabs**: Dashboard (index), Activity (audit logs + AI interaction logs), Providers, Support, Settings
+- **Key Screens**: User management, role management, notifications, provider details, support tickets
+- **Path alias**: `@/` maps to project root
 
 ### Shared Library
 

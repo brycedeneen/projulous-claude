@@ -6,21 +6,22 @@
 
 ## Active Plans — Ready to Build
 
-### 1. Project Collaborator Invite Workflow (HIGH)
-**File**: `PROJECT_COLLABORATOR_INVITE_PLAN.md`
+### 0. Web-to-Mobile Feature Parity (CRITICAL)
+**File**: `WEB_TO_MOBILE_FEATURE_GAP_PLAN.md`
 **Status**: NOT STARTED
 
-Completes the broken project collaborator invite flow. Entity + CRUD + UI exist, but no email is sent, no acceptance page, tokens are plaintext, no expiry CRON. Mirrors the working SP team invite patterns.
+Comprehensive gap analysis: 22 significant features exist in projulous-web but are missing from projulous-mobile. The biggest gap is the entire SP experience (onboarding, dashboard, offerings, team, billing, certification, tickets — all missing). Also missing: help center, support tickets, maintenance overview, ideas board, browse services, vendor landing pages, SP detail pages, and more.
 
-| Phase | Description | Effort |
-|-------|-------------|--------|
-| 1 | Backend foundation: SHA256 token hashing, cancel/resend/decline/accept endpoints, expiry CRON | 4-6h |
-| 2 | Email delivery to invitee | 2-3h |
-| 3 | Web acceptance page (new user registration + existing user accept) | 4-6h |
-| 4 | Resend/Cancel UI (web + mobile) | 3-4h |
-| 5 | Mobile deep linking (deferred — web page works on mobile browser) | — |
+| Sprint | Focus | Items | Effort | Priority |
+|--------|-------|-------|--------|----------|
+| 1 | SP Foundation (onboarding, registration, dashboard, nav) | 5 | ~10d | P0 |
+| 2 | SP Management (offerings, team, billing, certification) | 4 | ~10d | P0 |
+| 3 | Support & Help (push notifications, tickets, help center) | 3 | ~8d | P0/P1 |
+| 4 | Customer Enhancements (maintenance overview, ideas, billing, quotes) | 4 | ~7d | P1/P2 |
+| 5 | Discovery (browse services, vendor pages, SP detail, showcase) | 4 | ~6d | P2/P3 |
+| **Total** | | **19 items** | **~35-46d** | |
 
-### 2. SP Showcase Self-Publishing (HIGH)
+### 1. SP Showcase Self-Publishing (HIGH)
 **File**: `SP_SHOWCASE_SELF_PUBLISHING_PLAN.md`
 **Status**: NOT STARTED
 
@@ -34,13 +35,7 @@ SP self-publishing of portfolio showcase posts (Pro/Pinnacle tier). S3 photo upl
 | 4 | Homepage wiring: replace static showcase with real API data | 3-4h |
 | 5 | Permissions seeding (4 new permissions) | 30m |
 
-### 3. Role-Based Page Access (MEDIUM)
-**File**: `ROLE_BASED_PAGE_ACCESS_PLAN.md`
-**Status**: NOT STARTED
-
-Frontend-only. Centralized `routeAccessConfig.ts` mapping routes to required roles. Single source of truth for both route guards and sidebar visibility. Replaces current behavior where users can access any page by URL.
-
-### 4. Push Notifications + Apple Sign-In (MEDIUM)
+### 3. Push Notifications + Apple Sign-In (MEDIUM)
 **File**: `PUSH_NOTIFICATIONS_AUTH_APPLE_PLAN.md`
 **Status**: Phase 2 DONE, Phases 1 & 3 NOT STARTED
 
@@ -50,18 +45,26 @@ Frontend-only. Centralized `routeAccessConfig.ts` mapping routes to required rol
 | 2 | ~~Multi-session refresh tokens~~ | — | **DONE** |
 | 3 | Apple Sign-In (credentials, native iOS, web feature flag) | 4-6h | not started |
 
-### 5. Project Planner — Remaining Work (MEDIUM)
+### 4. Project Planner — Remaining Work (MEDIUM)
 **File**: `PROJECT_PLANNER_PLAN.md`
-**Status**: Sprints 1-6 DONE, Sprint 7 + Phase 6 NOT STARTED
+**Status**: Sprints 1-6 DONE, Phase 6 DONE, Sprint 7 NOT STARTED
 
 | Item | Description |
 |------|-------------|
 | Sprint 7 | Notifications & Polish (plan ready notifications, phase completion alerts) |
-| Phase 6 | Collaborator Auth & Access — partly superseded by `PROJECT_COLLABORATOR_INVITE_PLAN.md` |
 
-### 6. Redbrick Admin Mobile App (NEEDS AUDIT)
+### 5. Redbrick Admin Mobile App (NEEDS AUDIT)
 **File**: `REDBRICK_ADMIN_MOBILE_PLAN.md`
 **Status**: App exists with some features, but plan checkboxes unchecked. Needs comparison against actual app state to determine remaining work.
+
+---
+
+## Completed
+
+| Item | File | Notes |
+|------|------|-------|
+| Project Collaborator Invite Workflow | `PROJECT_COLLABORATOR_INVITE_PLAN.md` | SHA256 tokens, email, acceptance page, CRON expiry, resend/cancel — all done |
+| Role-Based Page Access | `ROLE_BASED_PAGE_ACCESS_PLAN.md` | `routeAccessConfig.ts`, `roleGuard.layout.tsx`, sidebar integration, 27 tests |
 
 ---
 
@@ -98,9 +101,10 @@ Frontend-only. Centralized `routeAccessConfig.ts` mapping routes to required rol
 
 | File | Purpose |
 |------|---------|
-| `PROJECT_COLLABORATOR_INVITE_PLAN.md` | Collaborator invite workflow (5 phases) |
+| `WEB_TO_MOBILE_FEATURE_GAP_PLAN.md` | Web-to-mobile feature parity (22 gaps, 5 sprints) |
+| `PROJECT_COLLABORATOR_INVITE_PLAN.md` | Collaborator invite workflow — **COMPLETE** |
 | `SP_SHOWCASE_SELF_PUBLISHING_PLAN.md` | SP self-publishing showcase (5 phases) |
-| `ROLE_BASED_PAGE_ACCESS_PLAN.md` | Frontend route guards + sidebar config |
+| `ROLE_BASED_PAGE_ACCESS_PLAN.md` | Frontend route guards + sidebar config — **COMPLETE** |
 | `PUSH_NOTIFICATIONS_AUTH_APPLE_PLAN.md` | Push sending (Phase 1) + Apple Sign-In (Phase 3) |
 | `PROJECT_PLANNER_PLAN.md` | Project planner remaining (Sprint 7 + Phase 6) |
 | `REDBRICK_ADMIN_MOBILE_PLAN.md` | Admin mobile app (needs status audit) |
